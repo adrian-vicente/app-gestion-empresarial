@@ -5,7 +5,7 @@ public class ValidatorConfig {
     // Método para validar el identificador de una clase 
 
     public static boolean identificadorValido(Long id) {
-        return id > 1;
+        return id > 0;
     }
 
 } // class
