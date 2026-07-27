@@ -1,10 +1,5 @@
-package app.gestion.empresarial.backend.model;
+package app.gestion.empresarial.backend.dto.Usuario;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -14,19 +9,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Table(name = "usuarios")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Usuario {
+public class UsuarioUpdateDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String password;
 
     // Longitud mínimo 3 y máximo de 20 a 50 carácteres
     @Size(min = 3, max = 50, message = "El nombre de usuario debe tener entre 3 y 50 carácteres")
@@ -37,9 +26,13 @@ public class Usuario {
     @Size(max = 254, message = "El email debe tener 254 cáracteres cómo máximo")
     private String email;
 
+    // Longitud mínima de 8 carácteres entre 64 y 128 carácteres
+    @Size(min = 64, max = 128, message = "La password debe tener entre 64 y 128 carácteres")
+    private String password;
+
     // Edad de rango máximo de 60 años
     @Min(value = 18, message = "La edad debe tener mínimo 18 años.")
     @Max(value = 60, message = "La edad debe tener cómo máximo 60 años.")
     private Integer edad;
 
-} // class
+} // clas
