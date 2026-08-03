@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.gestion.empresarial.backend.dto.Login.LoginDTO;
+import app.gestion.empresarial.backend.dto.Login.RefreshTokenDTO;
 import app.gestion.empresarial.backend.dto.Login.TokenResponseDTO;
 import app.gestion.empresarial.backend.dto.Usuario.UsuarioCreateDTO;
 import app.gestion.empresarial.backend.service.AuthService;
@@ -38,5 +39,12 @@ public class AuthRestController {
         return authService.register(registerUser);
     }
     
+    // Método para refrescar el token actual 
+
+    @PostMapping("/refresh")
+    public TokenResponseDTO refresh(@RequestBody @Valid RefreshTokenDTO refreshToken) {
+        return authService.refreshToken(refreshToken);
+
+    }
 
 } // class

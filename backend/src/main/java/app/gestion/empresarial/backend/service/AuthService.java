@@ -3,13 +3,13 @@ package app.gestion.empresarial.backend.service;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import app.gestion.empresarial.backend.dto.Login.LoginDTO;
+import app.gestion.empresarial.backend.dto.Login.RefreshTokenDTO;
 import app.gestion.empresarial.backend.dto.Login.TokenResponseDTO;
 import app.gestion.empresarial.backend.dto.Usuario.UsuarioCreateDTO;
+import app.gestion.empresarial.backend.exception.Token.InvalidTokenException;
 import app.gestion.empresarial.backend.exception.UsuarioException.UsuarioAlreadyExistsException;
 import app.gestion.empresarial.backend.exception.UsuarioException.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.mapper.UsuarioMapper;
@@ -26,14 +26,12 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
     private final UsuarioRepository usuarioRepository;
-    private final PasswordEncoder passwordEncoder;
     private final UsuarioMapper usuarioMapper;
 
-    public AuthService(AuthenticationManager authenticationManager, JwtService jwtService, UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder, UsuarioMapper usuarioMapper) {
+    public AuthService(AuthenticationManager authenticationManager, JwtService jwtService, UsuarioRepository usuarioRepository, UsuarioMapper usuarioMapper) {
         this.authenticationManager = authenticationManager;
         this.jwtService = jwtService;
         this.usuarioRepository = usuarioRepository;
-        this.passwordEncoder = passwordEncoder;
         this.usuarioMapper = usuarioMapper;
     }
 
@@ -94,5 +92,33 @@ public class AuthService {
         return new TokenResponseDTO(accessToken, refreshToken, "Bearer");
 
     } // usuarioCreateDTO
+
+    // Método que permita refrescar token actual por uno nuevo
+
+    @Transactional(readOnly = true)
+    public TokenResponseDTO refreshToken(RefreshTokenDTO refreshTokenDTO) throws InvalidTokenException {
+        
+        // Obtener el email a partir del token 
+
+        String email = jwtService.extractUsername(refreshTokenDTO.refreshToken());
+
+        // Buscar el usuario a partir del token extraido 
+
+        Usuario usuario =  usuarioRepository.findByEmail(email)
+            .orElseThrow(() -> new UsuarioNotFoundException("No se ha encontrado ningún usuario con email: " + email));
+
+        // Validamos el token
+
+        if(!jwtService.isTokenValid(refreshTokenDTO.refreshToken(), usuario)) {
+            throw new InvalidTokenException("El refresh token no es un token válido.");
+
+        } // if
+
+        // Generar un nuevo access token para el usuario.
+
+        String accessToken = jwtService.generateAccessToken(usuario);
+        return new TokenResponseDTO(accessToken, refreshTokenDTO.refreshToken(), "Bearer");
+
+    }
 
 } // class
