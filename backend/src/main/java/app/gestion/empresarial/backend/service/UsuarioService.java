@@ -3,14 +3,14 @@ package app.gestion.empresarial.backend.service;
 import app.gestion.empresarial.backend.mapper.UsuarioMapper;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import app.gestion.empresarial.backend.dto.Usuario.UsuarioDTO;
 import app.gestion.empresarial.backend.exception.UsuarioException.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.model.Usuario;
 import app.gestion.empresarial.backend.repository.UsuarioRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @Service
 public class UsuarioService {
@@ -48,9 +48,35 @@ public class UsuarioService {
 
     // Método para obtener el usuario autenticado 
 
+    @Transactional(readOnly = true)
+    public UsuarioDTO getAuthenticatedUser() throws UsuarioNotFoundException {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(authentication == null || !authentication.isAuthenticated()) {
+            throw new UsuarioNotFoundException("No se ha encontrado a ningún usuario autenticado.");
+        
+        } // if
+
+        Usuario usuarioAutenticado = (Usuario) authentication.getPrincipal();
+        Usuario usuario = usuarioRepository.findByEmail(usuarioAutenticado.getEmail())
+            .orElseThrow(() -> new UsuarioNotFoundException("No se ha encontrado a ningún usuario con email: " + usuarioAutenticado.getEmail()));
+
+        return usuarioMapper.toDTO(usuario);
+
+    } // getAuthenticatedUser
+
     // Método para buscar el usuario por nombre 
 
-    // Método para filtrar usuarios por el estado 
+    @Transactional(readOnly = true)
+    public UsuarioDTO findUserByNombre(String nombre) throws UsuarioNotFoundException {
+        Usuario usuario = usuarioRepository.findByNombre(nombre)
+            .orElseThrow(() -> new UsuarioNotFoundException("No se ha encontrado a ningún usuario con nombre: " + nombre));
+
+        return usuarioMapper.toDTO(usuario);
+
+    } // findUserByNombre
+
+    // Método para obtener los usuarios activos
 
     // Método para filtrar usuarios por rol
 

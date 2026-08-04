@@ -10,12 +10,16 @@ import app.gestion.empresarial.backend.model.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    // Comprobar que no exista usuario con email determinado
+    // Comprobar si existe usuario con email determinado
 
     public boolean existsByEmail(String email);
 
-    // Obtener usuario a partir del identificador 
+    // Encontrar usuario a partir de email
 
     public Optional<Usuario> findByEmail(String email);
+
+    // Encontrar usuario a partir del nombre
+
+    public Optional<Usuario> findByNombre(String nombre);
 
 } // class

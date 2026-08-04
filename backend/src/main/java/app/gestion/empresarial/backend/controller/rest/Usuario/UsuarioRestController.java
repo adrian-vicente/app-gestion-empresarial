@@ -46,9 +46,27 @@ public class UsuarioRestController {
     @GetMapping("/obtener/{id}")
     public ResponseEntity<UsuarioDTO> findUserById(@PathVariable Long id) throws UsuarioNotFoundException {
         UsuarioDTO usuario = usuarioService.findUserById(id);
-        return ResponseEntity
-            .ok(usuario);
+        return ResponseEntity.ok(usuario);
 
     } // findUserById
+
+    // Método para obtener usuario autenticado en la aplicación
+
+    @GetMapping("/me")
+    public ResponseEntity<UsuarioDTO> getAuthenticatedUser() throws UsuarioNotFoundException {
+        UsuarioDTO usuario = usuarioService.getAuthenticatedUser();
+        return ResponseEntity.ok(usuario);
+
+    } // getAuthenticatedUser
+
+    // Método para obtener usuario a partir del nombre 
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/{nombre}")
+    public ResponseEntity<UsuarioDTO> findUserByNombre(@PathVariable String nombre) throws UsuarioNotFoundException {
+        UsuarioDTO usuario = usuarioService.findUserByNombre(nombre);
+        return ResponseEntity.ok(usuario);
+
+    } // findUserByNombre
 
 } // class
