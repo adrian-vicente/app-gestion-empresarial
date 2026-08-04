@@ -79,7 +79,7 @@ public class AuthService {
         
         // Por defecto la app la usará una persona (El administrador)
 
-        usuario.setRol(Rol.ADMIN);
+        usuario.setRol(Rol.USUARIO);
 
         // Guardar el usuario en la base de datos y generar los tokens de acceso
 

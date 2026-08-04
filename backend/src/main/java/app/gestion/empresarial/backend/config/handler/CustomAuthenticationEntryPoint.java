@@ -30,7 +30,7 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
         
         // Rellenar objeto con los datos del error generado
         
-        ErrorResponseDTO error = new ErrorResponseDTO(LocalDateTime.now(), HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized", authException.getMessage(), request.getRequestURI());
+        ErrorResponseDTO error = new ErrorResponseDTO(LocalDateTime.now(), HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized - Acceso no permitido", "Necesitas estar autenticado para acceder a esta ruta.", request.getRequestURI());
         
         // Parámetros sobre la respuesta de la aplicación
 

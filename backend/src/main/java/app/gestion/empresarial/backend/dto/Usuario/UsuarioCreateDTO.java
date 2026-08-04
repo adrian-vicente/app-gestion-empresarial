@@ -36,4 +36,6 @@ public class UsuarioCreateDTO {
     @Max(value = 60, message = "La edad debe tener cómo máximo 60 años.")
     private Integer edad;
 
+    private String telefono;
+
 } // class

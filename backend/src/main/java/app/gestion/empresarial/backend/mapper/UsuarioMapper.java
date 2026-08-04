@@ -29,6 +29,7 @@ public class UsuarioMapper {
         usuario.setEmail(usuarioDTO.getEmail());
         usuario.setPassword( passwordEncoder.encode(usuarioDTO.getPassword()) );
         usuario.setEdad(usuarioDTO.getEdad());
+        usuario.setTelefono(usuarioDTO.getTelefono());
 
         return usuario;
 
@@ -43,6 +44,10 @@ public class UsuarioMapper {
         usuarioDTO.setNombre( usuario.getNombre() );
         usuarioDTO.setEdad( usuario.getEdad() );
         usuarioDTO.setEmail( usuario.getEmail() );
+        usuarioDTO.setRol(usuario.getRol().toString());
+        usuarioDTO.setActivo(usuario.getActivo());
+        usuarioDTO.setFechaCreacionUsuario(usuario.getFechaCreacionUsuario());
+        usuarioDTO.setTelefono(usuario.getTelefono());
 
         return usuarioDTO;
 
