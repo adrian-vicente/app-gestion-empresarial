@@ -78,6 +78,15 @@ public class UsuarioService {
 
     // Método para obtener los usuarios activos
 
+    @Transactional(readOnly = true)
+    public List<UsuarioDTO> getActiveUsers() {
+        List<Usuario> usuariosActivos = usuarioRepository.findByActivoTrue();
+        List<UsuarioDTO> usuariosActivosDTO = new ArrayList<UsuarioDTO>();
+        for(Usuario u : usuariosActivos) usuariosActivosDTO.add(usuarioMapper.toDTO(u));
+        return usuariosActivosDTO;
+
+    }
+
     // Método para filtrar usuarios por rol
 
     // Método para actualizar un usuario 

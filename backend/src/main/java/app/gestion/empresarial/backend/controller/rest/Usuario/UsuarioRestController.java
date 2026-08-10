@@ -21,11 +21,9 @@ public class UsuarioRestController {
     // Inyección de dependencias 
 
     private final UsuarioService usuarioService;
-    private final UsuarioRepository usuarioRepository;
 
-    public UsuarioRestController(UsuarioService usuarioService, UsuarioRepository usuarioRepository) {
+    public UsuarioRestController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
-        this.usuarioRepository = usuarioRepository;
 
     }
 
@@ -45,8 +43,7 @@ public class UsuarioRestController {
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/obtener/{id}")
     public ResponseEntity<UsuarioDTO> findUserById(@PathVariable Long id) throws UsuarioNotFoundException {
-        UsuarioDTO usuario = usuarioService.findUserById(id);
-        return ResponseEntity.ok(usuario);
+        return ResponseEntity.ok(usuarioService.findUserById(id));
 
     } // findUserById
 
@@ -54,8 +51,7 @@ public class UsuarioRestController {
 
     @GetMapping("/me")
     public ResponseEntity<UsuarioDTO> getAuthenticatedUser() throws UsuarioNotFoundException {
-        UsuarioDTO usuario = usuarioService.getAuthenticatedUser();
-        return ResponseEntity.ok(usuario);
+        return ResponseEntity.ok(usuarioService.getAuthenticatedUser());
 
     } // getAuthenticatedUser
 
@@ -64,9 +60,17 @@ public class UsuarioRestController {
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{nombre}")
     public ResponseEntity<UsuarioDTO> findUserByNombre(@PathVariable String nombre) throws UsuarioNotFoundException {
-        UsuarioDTO usuario = usuarioService.findUserByNombre(nombre);
-        return ResponseEntity.ok(usuario);
+        return ResponseEntity.ok(usuarioService.findUserByNombre(nombre));
 
     } // findUserByNombre
+
+    // Método para obtener todos los usuarios activos 
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/obtener/activos")
+    public ResponseEntity<List<UsuarioDTO>> getActiveUsers() {
+        return ResponseEntity.ok(usuarioService.getActiveUsers());
+
+    } // getActiveUsers
 
 } // class

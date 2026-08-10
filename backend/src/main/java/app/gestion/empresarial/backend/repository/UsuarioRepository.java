@@ -1,5 +1,6 @@
 package app.gestion.empresarial.backend.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,5 +22,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     // Encontrar usuario a partir del nombre
 
     public Optional<Usuario> findByNombre(String nombre);
+
+    // Obtener todos los usuarios activos
+
+    public List<Usuario> findByActivoTrue();
 
 } // class
