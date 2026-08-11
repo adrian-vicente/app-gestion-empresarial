@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import app.gestion.empresarial.backend.dto.Usuario.UsuarioDTO;
 import app.gestion.empresarial.backend.exception.UsuarioException.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.model.Usuario;
+import app.gestion.empresarial.backend.model.enums.Rol;
 import app.gestion.empresarial.backend.repository.UsuarioRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -88,6 +89,15 @@ public class UsuarioService {
     }
 
     // Método para filtrar usuarios por rol
+
+    @Transactional(readOnly = true)
+    public List<UsuarioDTO> getUsersByRol(String rol) {
+        List<Usuario> usuarios = usuarioRepository.findByRol( Rol.valueOf( rol.toUpperCase() ) );
+        List<UsuarioDTO> usuarioDTOs = new ArrayList<UsuarioDTO>();
+        for(Usuario u : usuarios) usuarioDTOs.add(usuarioMapper.toDTO(u));
+        return usuarioDTOs;
+
+    } // getUsersByRol
 
     // Método para actualizar un usuario 
 

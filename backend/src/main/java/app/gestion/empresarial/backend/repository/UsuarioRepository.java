@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import app.gestion.empresarial.backend.model.Usuario;
+import app.gestion.empresarial.backend.model.enums.Rol;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
@@ -26,5 +27,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     // Obtener todos los usuarios activos
 
     public List<Usuario> findByActivoTrue();
+
+    // Obtener todos los usuarios a partir de un rol 
+
+    public List<Usuario> findByRol(Rol rol);
 
 } // class

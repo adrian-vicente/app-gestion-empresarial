@@ -73,4 +73,12 @@ public class UsuarioRestController {
 
     } // getActiveUsers
 
+    // Método para obtener todos los usuarios a partir de un rol 
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/obtener/rol")
+    public ResponseEntity<List<UsuarioDTO>> getUsersByRol(String rol) {
+        return ResponseEntity.ok(usuarioService.getUsersByRol(rol));
+    }
+
 } // class
