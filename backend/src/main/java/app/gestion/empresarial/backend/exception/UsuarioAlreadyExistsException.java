@@ -1,4 +1,4 @@
-package app.gestion.empresarial.backend.exception.UsuarioException;
+package app.gestion.empresarial.backend.exception;
 
 public class UsuarioAlreadyExistsException extends RuntimeException {
 

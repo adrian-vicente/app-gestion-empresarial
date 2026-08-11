@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import app.gestion.empresarial.backend.dto.UsuarioDTO;
 import app.gestion.empresarial.backend.dto.UsuarioUpdateDTO;
-import app.gestion.empresarial.backend.exception.UsuarioException.UsuarioNotFoundException;
+import app.gestion.empresarial.backend.exception.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.repository.UsuarioRepository;
 import app.gestion.empresarial.backend.service.UsuarioService;
 import jakarta.validation.Valid;

@@ -1,4 +1,4 @@
-package app.gestion.empresarial.backend.exception.Token;
+package app.gestion.empresarial.backend.exception;
 
 public class InvalidTokenException extends RuntimeException {
 

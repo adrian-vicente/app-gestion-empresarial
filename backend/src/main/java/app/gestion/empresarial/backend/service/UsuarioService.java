@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import app.gestion.empresarial.backend.dto.UsuarioDTO;
 import app.gestion.empresarial.backend.dto.UsuarioUpdateDTO;
-import app.gestion.empresarial.backend.exception.UsuarioException.UsuarioNotFoundException;
+import app.gestion.empresarial.backend.exception.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.model.Usuario;
 import app.gestion.empresarial.backend.model.enums.Rol;
 import app.gestion.empresarial.backend.repository.UsuarioRepository;

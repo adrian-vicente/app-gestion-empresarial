@@ -18,6 +18,9 @@ public class GastoDTO {
     // Declaración de atributos 
 
     private Long id;
+    private Long usuarioId;
+    private Long proveedorId;
+    
     private CategoriaGasto categoriaGasto;
     private MetodoPago metodoPago;
     private BigDecimal iva;
