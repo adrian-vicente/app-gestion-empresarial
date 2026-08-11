@@ -44,7 +44,7 @@ public class Usuario implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Rol rol;
+    private Rol rol = Rol.USUARIO;
 
     // Campo para la password del usuario 
 
@@ -88,6 +88,8 @@ public class Usuario implements UserDetails {
     // Teléfono del usuario 
 
     private String telefono;
+
+    // Declaración de atributos para las relaciones
 
     // Método para obtener los roles del usuario 
 

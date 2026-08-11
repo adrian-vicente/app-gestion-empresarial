@@ -1,4 +1,4 @@
-package app.gestion.empresarial.backend.dto.Login;
+package app.gestion.empresarial.backend.dto;
 
 public record TokenResponseDTO(
     

@@ -1,4 +1,4 @@
-package app.gestion.empresarial.backend.controller.rest.Auth;
+package app.gestion.empresarial.backend.controller.rest;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.gestion.empresarial.backend.dto.Login.LoginDTO;
-import app.gestion.empresarial.backend.dto.Login.RefreshTokenDTO;
-import app.gestion.empresarial.backend.dto.Login.TokenResponseDTO;
-import app.gestion.empresarial.backend.dto.Usuario.UsuarioCreateDTO;
+import app.gestion.empresarial.backend.dto.LoginDTO;
+import app.gestion.empresarial.backend.dto.RefreshTokenDTO;
+import app.gestion.empresarial.backend.dto.TokenResponseDTO;
+import app.gestion.empresarial.backend.dto.UsuarioCreateDTO;
 import app.gestion.empresarial.backend.service.AuthService;
 import jakarta.validation.Valid;
 

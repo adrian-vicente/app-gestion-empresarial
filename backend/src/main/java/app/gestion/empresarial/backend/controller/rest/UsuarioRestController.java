@@ -1,4 +1,4 @@
-package app.gestion.empresarial.backend.controller.rest.Usuario;
+package app.gestion.empresarial.backend.controller.rest;
 
 import java.util.List;
 
@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import app.gestion.empresarial.backend.dto.Usuario.UsuarioDTO;
+import app.gestion.empresarial.backend.dto.UsuarioDTO;
+import app.gestion.empresarial.backend.dto.UsuarioUpdateDTO;
 import app.gestion.empresarial.backend.exception.UsuarioException.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.repository.UsuarioRepository;
 import app.gestion.empresarial.backend.service.UsuarioService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/usuario")
@@ -79,6 +83,15 @@ public class UsuarioRestController {
     @GetMapping("/obtener/rol")
     public ResponseEntity<List<UsuarioDTO>> getUsersByRol(String rol) {
         return ResponseEntity.ok(usuarioService.getUsersByRol(rol));
+    }
+
+    // Método para modificar los datos de un usuario existente 
+
+    @PutMapping("/me")
+    @PreAuthorize("isAuthenticated()")
+    public ResponseEntity<UsuarioDTO> updateUser(@RequestBody @Valid UsuarioUpdateDTO usuarioUpdateDTO) {
+        return ResponseEntity.ok(usuarioService.updateUsuario(usuarioUpdateDTO));
+
     }
 
 } // class

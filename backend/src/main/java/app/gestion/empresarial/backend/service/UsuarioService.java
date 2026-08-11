@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import app.gestion.empresarial.backend.dto.Usuario.UsuarioDTO;
+
+import app.gestion.empresarial.backend.dto.UsuarioDTO;
+import app.gestion.empresarial.backend.dto.UsuarioUpdateDTO;
 import app.gestion.empresarial.backend.exception.UsuarioException.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.model.Usuario;
 import app.gestion.empresarial.backend.model.enums.Rol;
@@ -99,11 +101,26 @@ public class UsuarioService {
 
     } // getUsersByRol
 
-    // Método para actualizar un usuario 
+    // Método para actualizar el perfil de un usuario autenticado.
 
-    // Método para actualizar el perfil de usuario autenticado 
+    @Transactional
+    public UsuarioDTO updateUsuario(UsuarioUpdateDTO usuarioUpdateDTO) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(auth == null || !auth.isAuthenticated()) {
+            throw new UsuarioNotFoundException("No se ha encontrado a ningún usuario autenticado.");
 
-    // Método para cambiar la password de usuario autenticado
+        } // if
+
+        Usuario usuarioActual = (Usuario) auth.getPrincipal();
+            usuarioActual.setNombre(usuarioUpdateDTO.getNombre());
+            usuarioActual.setEmail(usuarioUpdateDTO.getEmail());
+            usuarioActual.setPassword(usuarioUpdateDTO.getPassword());
+            usuarioActual.setEdad(usuarioUpdateDTO.getEdad());
+
+        Usuario usuarioModifcado = usuarioRepository.saveAndFlush(usuarioActual);
+        return usuarioMapper.toDTO(usuarioModifcado);
+
+    } // updateUsuario
 
     // Método para activar un usuario 
 

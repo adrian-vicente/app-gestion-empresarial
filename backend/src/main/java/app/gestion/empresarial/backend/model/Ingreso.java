@@ -2,7 +2,7 @@ package app.gestion.empresarial.backend.model;
 
 import java.math.BigDecimal;
 
-import app.gestion.empresarial.backend.model.enums.CategoriaGasto;
+import app.gestion.empresarial.backend.model.enums.CategoriaIngreso;
 import app.gestion.empresarial.backend.model.enums.MetodoPago;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -20,12 +20,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "gastos")
+@Table(name = "ingresos")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-public class Gasto {
+@Getter @Setter
+public class Ingreso {
 
     // Declaración de atributos
 
@@ -34,26 +33,21 @@ public class Gasto {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private CategoriaGasto categoriaGasto;
-
-    @Enumerated(EnumType.STRING)
     private MetodoPago metodoPago;
 
-    private BigDecimal iva = new BigDecimal(21.00);
-    private BigDecimal total;
+    @Enumerated(EnumType.STRING)
+    private CategoriaIngreso categoriaIngreso;
 
     private String nombre;
     private String descripcion;
-    private String numeroFactura;
+
+    private BigDecimal iva = new BigDecimal(21.00);
+    private BigDecimal total;
 
     // Declaración de atributos para las relaciones 
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "proveedor_id")
-    private Proveedor proveedor;
 
 } // class

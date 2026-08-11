@@ -1,4 +1,4 @@
-package app.gestion.empresarial.backend.dto.Errores;
+package app.gestion.empresarial.backend.dto;
 
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;

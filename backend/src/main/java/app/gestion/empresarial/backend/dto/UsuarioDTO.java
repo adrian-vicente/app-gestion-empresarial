@@ -1,4 +1,4 @@
-package app.gestion.empresarial.backend.dto.Usuario;
+package app.gestion.empresarial.backend.dto;
 
 import java.time.LocalDate;
 
