@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import app.gestion.empresarial.backend.config.ValidatorConfig;
-import app.gestion.empresarial.backend.dto.ProveedorDTO;
+import app.gestion.empresarial.backend.dto.Proveedor.ProveedorDTO;
 import app.gestion.empresarial.backend.model.Gasto;
 import app.gestion.empresarial.backend.model.Proveedor;
 import app.gestion.empresarial.backend.repository.GastoRepository;

@@ -3,7 +3,7 @@ package app.gestion.empresarial.backend.mapper;
 import org.springframework.stereotype.Component;
 
 import app.gestion.empresarial.backend.config.ValidatorConfig;
-import app.gestion.empresarial.backend.dto.GastoDTO;
+import app.gestion.empresarial.backend.dto.Gasto.GastoDTO;
 import app.gestion.empresarial.backend.exception.ProveedorNotFoundException;
 import app.gestion.empresarial.backend.exception.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.model.Gasto;

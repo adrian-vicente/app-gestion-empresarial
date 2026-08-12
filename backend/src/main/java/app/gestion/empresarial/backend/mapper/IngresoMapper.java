@@ -3,7 +3,7 @@ package app.gestion.empresarial.backend.mapper;
 import org.springframework.stereotype.Component;
 import app.gestion.empresarial.backend.model.Usuario;
 import app.gestion.empresarial.backend.config.ValidatorConfig;
-import app.gestion.empresarial.backend.dto.IngresoDTO;
+import app.gestion.empresarial.backend.dto.Ingreso.IngresoDTO;
 import app.gestion.empresarial.backend.exception.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.model.Ingreso;
 import app.gestion.empresarial.backend.repository.UsuarioRepository;

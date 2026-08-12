@@ -6,9 +6,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import app.gestion.empresarial.backend.dto.LoginDTO;
-import app.gestion.empresarial.backend.dto.RefreshTokenDTO;
-import app.gestion.empresarial.backend.dto.TokenResponseDTO;
+import app.gestion.empresarial.backend.dto.Login.LoginDTO;
+import app.gestion.empresarial.backend.dto.Login.RefreshTokenDTO;
+import app.gestion.empresarial.backend.dto.Login.TokenResponseDTO;
 import app.gestion.empresarial.backend.dto.Usuario.UsuarioCreateDTO;
 import app.gestion.empresarial.backend.exception.InvalidTokenException;
 import app.gestion.empresarial.backend.exception.UsuarioAlreadyExistsException;

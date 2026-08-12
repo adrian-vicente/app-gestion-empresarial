@@ -1,4 +1,4 @@
-package app.gestion.empresarial.backend.dto;
+package app.gestion.empresarial.backend.dto.Ingreso;
 
 import java.math.BigDecimal;
 
