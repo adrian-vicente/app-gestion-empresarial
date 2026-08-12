@@ -19,4 +19,12 @@ public class GastoService {
 
     }
 
+    // Método para obtener todos los gastos 
+
+    // Método para obtener gasto por id
+
+    // Método para crear un nuevo gasto
+
+    // Método para modificar gasto existente
+
 } // class

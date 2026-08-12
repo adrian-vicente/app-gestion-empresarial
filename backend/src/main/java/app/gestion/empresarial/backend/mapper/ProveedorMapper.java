@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import app.gestion.empresarial.backend.config.ValidatorConfig;
+import app.gestion.empresarial.backend.dto.Proveedor.ProveedorCreateDTO;
 import app.gestion.empresarial.backend.dto.Proveedor.ProveedorDTO;
+import app.gestion.empresarial.backend.dto.Proveedor.ProveedorUpdateDTO;
 import app.gestion.empresarial.backend.model.Gasto;
 import app.gestion.empresarial.backend.model.Proveedor;
 import app.gestion.empresarial.backend.repository.GastoRepository;
@@ -64,6 +66,17 @@ public class ProveedorMapper {
         // Devolver el objeto con los datos transpilados 
         
         return proveedorDTO;
+
+    }
+
+    // Método de conversión a entidad a partir del DTO de creación 
+
+    public Proveedor toEntityFromCreateDTO(ProveedorCreateDTO proveedorCreateDTO) {
+        Proveedor proveedor = new Proveedor();
+            proveedor.setNombre(proveedorCreateDTO.getNombre());
+            proveedor.setDescripcion(proveedorCreateDTO.getDescripcion());
+
+        return proveedor;
 
     }
 

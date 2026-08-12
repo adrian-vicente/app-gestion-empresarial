@@ -18,4 +18,12 @@ public class IngresoService {
         this.ingresoMapper = ingresoMapper;
     }
 
+    // Método para obtener todos los ingresos
+
+    // Método para obtener ingreso por id
+
+    // Método para crear nuevo ingreso
+
+    // Método para modificar ingreso existente
+
 } // class

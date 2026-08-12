@@ -38,4 +38,11 @@ public class GlobalExceptionHandler {
             .body(ex.getMessage());
     }
 
+    @ExceptionHandler(ProveedorNameAlreadyExistsException.class)
+    public ResponseEntity<String> proveedorNameAlreadyExists(ProveedorNameAlreadyExistsException ex) {
+        return ResponseEntity
+            .status(HttpStatus.CONFLICT)
+            .body(ex.getMessage());
+    }
+
 } // class
