@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import app.gestion.empresarial.backend.dto.UsuarioDTO;
-import app.gestion.empresarial.backend.dto.UsuarioUpdateDTO;
+import app.gestion.empresarial.backend.dto.Usuario.UsuarioDTO;
+import app.gestion.empresarial.backend.dto.Usuario.UsuarioUpdateDTO;
 import app.gestion.empresarial.backend.exception.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.model.Usuario;
 import app.gestion.empresarial.backend.model.enums.Rol;

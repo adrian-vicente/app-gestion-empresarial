@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import app.gestion.empresarial.backend.dto.LoginDTO;
 import app.gestion.empresarial.backend.dto.RefreshTokenDTO;
 import app.gestion.empresarial.backend.dto.TokenResponseDTO;
-import app.gestion.empresarial.backend.dto.UsuarioCreateDTO;
+import app.gestion.empresarial.backend.dto.Usuario.UsuarioCreateDTO;
 import app.gestion.empresarial.backend.service.AuthService;
 import jakarta.validation.Valid;
 

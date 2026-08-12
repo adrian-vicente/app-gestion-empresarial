@@ -53,7 +53,7 @@ public class Gasto {
     private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "proveedor_id")
+    @JoinColumn(name = "proveedor_id", nullable = false)
     private Proveedor proveedor;
 
 } // class

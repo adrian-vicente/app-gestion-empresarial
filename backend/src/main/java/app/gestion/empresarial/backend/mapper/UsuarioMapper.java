@@ -4,11 +4,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import app.gestion.empresarial.backend.config.ValidatorConfig;
-import app.gestion.empresarial.backend.dto.UsuarioCreateDTO;
-import app.gestion.empresarial.backend.dto.UsuarioDTO;
-import app.gestion.empresarial.backend.dto.UsuarioUpdateDTO;
+import app.gestion.empresarial.backend.dto.Usuario.UsuarioCreateDTO;
+import app.gestion.empresarial.backend.dto.Usuario.UsuarioDTO;
 import app.gestion.empresarial.backend.model.Usuario;
-import app.gestion.empresarial.backend.model.enums.Rol;
 import app.gestion.empresarial.backend.repository.UsuarioRepository;
 
 @Component

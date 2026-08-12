@@ -15,6 +15,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
@@ -90,6 +91,12 @@ public class Usuario implements UserDetails {
     private String telefono;
 
     // Declaración de atributos para las relaciones
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Gasto> gastos;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Ingreso> ingresos;
 
     // Método para obtener los roles del usuario 
 

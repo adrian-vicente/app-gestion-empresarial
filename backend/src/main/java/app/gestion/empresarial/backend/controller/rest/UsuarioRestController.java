@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import app.gestion.empresarial.backend.dto.UsuarioDTO;
-import app.gestion.empresarial.backend.dto.UsuarioUpdateDTO;
+import app.gestion.empresarial.backend.dto.Usuario.UsuarioDTO;
+import app.gestion.empresarial.backend.dto.Usuario.UsuarioUpdateDTO;
 import app.gestion.empresarial.backend.exception.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.repository.UsuarioRepository;
 import app.gestion.empresarial.backend.service.UsuarioService;

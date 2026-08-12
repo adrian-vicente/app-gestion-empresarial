@@ -26,4 +26,8 @@ public class IngresoDTO {
     private BigDecimal iva;
     private BigDecimal total;
 
+    // Declaración de atributos para las relaciones 
+
+    private Long usuarioId;
+
 } // class

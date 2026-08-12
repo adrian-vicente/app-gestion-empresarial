@@ -1,4 +1,4 @@
-package app.gestion.empresarial.backend.dto;
+package app.gestion.empresarial.backend.dto.Usuario;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
