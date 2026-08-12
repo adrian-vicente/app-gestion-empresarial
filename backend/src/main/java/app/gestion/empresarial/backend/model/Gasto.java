@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import app.gestion.empresarial.backend.model.enums.CategoriaGasto;
 import app.gestion.empresarial.backend.model.enums.MetodoPago;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -44,6 +45,8 @@ public class Gasto {
 
     private String nombre;
     private String descripcion;
+
+    @Column(unique = true, nullable = false)
     private String numeroFactura;
 
     // Declaración de atributos para las relaciones 

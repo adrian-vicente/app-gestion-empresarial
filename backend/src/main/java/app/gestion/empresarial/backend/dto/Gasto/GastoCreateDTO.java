@@ -15,7 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class GastoDTO {
+public class GastoCreateDTO {
 
     // Declaración de atributos 
 
@@ -23,8 +23,7 @@ public class GastoDTO {
     
     private CategoriaGasto categoriaGasto;
     private MetodoPago metodoPago;
-    private BigDecimal iva;
-    private BigDecimal total;
+    
     private String nombre;
     private String descripcion;
 
@@ -32,9 +31,7 @@ public class GastoDTO {
     @NotEmpty(message = "El gasto tiene que tener un identificador o número de factura asociado.")
     private String numeroFactura;
 
-    // Declaración de atributos para las relaciones 
-
-    private Long usuarioId;
-    private Long proveedorId;
+    private BigDecimal iva;
+    private BigDecimal total;
 
 } // class

@@ -1,5 +1,7 @@
 package app.gestion.empresarial.backend.exception;
 
+import java.net.HttpURLConnection;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -40,6 +42,20 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ProveedorNameAlreadyExistsException.class)
     public ResponseEntity<String> proveedorNameAlreadyExists(ProveedorNameAlreadyExistsException ex) {
+        return ResponseEntity
+            .status(HttpStatus.CONFLICT)
+            .body(ex.getMessage());
+    }
+
+    @ExceptionHandler(GastoNotFoundException.class)
+    public ResponseEntity<String> gastoNotFound(GastoNotFoundException ex) {
+        return ResponseEntity
+            .status(HttpStatus.NOT_FOUND)
+            .body(ex.getMessage());
+    }
+
+    @ExceptionHandler(GastoAlreadyExistsException.class)
+    public ResponseEntity<String> gastoAlreadyExists(GastoAlreadyExistsException ex) {
         return ResponseEntity
             .status(HttpStatus.CONFLICT)
             .body(ex.getMessage());

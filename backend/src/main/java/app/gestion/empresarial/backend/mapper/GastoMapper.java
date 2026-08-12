@@ -3,7 +3,9 @@ package app.gestion.empresarial.backend.mapper;
 import org.springframework.stereotype.Component;
 
 import app.gestion.empresarial.backend.config.ValidatorConfig;
+import app.gestion.empresarial.backend.dto.Gasto.GastoCreateDTO;
 import app.gestion.empresarial.backend.dto.Gasto.GastoDTO;
+import app.gestion.empresarial.backend.dto.Gasto.GastoUpdateDTO;
 import app.gestion.empresarial.backend.exception.ProveedorNotFoundException;
 import app.gestion.empresarial.backend.exception.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.model.Gasto;
@@ -77,6 +79,55 @@ public class GastoMapper {
         // Devolver el objeto con los datos añadidos
 
         return gastoDTO;
+
+    }
+
+    // Método de conversión de dto de creación a entidad 
+
+    public Gasto toEntityFromCreateDTO(GastoCreateDTO gastoCreateDTO) {
+        Gasto gasto = new Gasto();
+            gasto.setCategoriaGasto(gastoCreateDTO.getCategoriaGasto());
+            gasto.setMetodoPago(gastoCreateDTO.getMetodoPago());
+            gasto.setNombre(gastoCreateDTO.getNombre());
+            gasto.setDescripcion(gastoCreateDTO.getDescripcion());
+            gasto.setIva(gastoCreateDTO.getIva());
+            gasto.setTotal(gastoCreateDTO.getTotal());
+            gasto.setNumeroFactura(gastoCreateDTO.getNumeroFactura());
+
+           return gasto;
+    }
+
+    // Método de conversión a entidad desde update dto 
+
+    public Gasto toEntityFromUpdateDTO(GastoUpdateDTO gastoUpdateDTO) {
+        Gasto gasto = new Gasto();
+        if(ValidatorConfig.identificadorValido(gastoUpdateDTO.getId())) {
+                gasto.setId(gastoUpdateDTO.getId());
+            
+        } // if
+
+        // Obtención de atributos a partir 
+
+        Usuario usuario = usuarioRepository.findById(gastoUpdateDTO.getUsuarioId())
+            .orElseThrow(() -> new UsuarioNotFoundException("No se ha encontrado a ningún usuario con id: " + gastoUpdateDTO.getUsuarioId()));
+
+        Proveedor proveedor = proveedorRepository.findById(gastoUpdateDTO.getProveedorId())
+            .orElseThrow(() -> new ProveedorNotFoundException("No se ha encontrado a ningún proveedor con id: " + gastoUpdateDTO.getProveedorId()));
+
+        gasto.setUsuario(usuario);
+        gasto.setProveedor(proveedor);
+
+        // Rellenar el resto de datos del objetop
+
+        gasto.setCategoriaGasto(gastoUpdateDTO.getCategoriaGasto());
+        gasto.setMetodoPago(gastoUpdateDTO.getMetodoPago());
+        gasto.setNombre(gastoUpdateDTO.getNombre());
+        gasto.setDescripcion(gastoUpdateDTO.getDescripcion());
+        gasto.setIva(gastoUpdateDTO.getIva());
+        gasto.setTotal(gastoUpdateDTO.getTotal());
+        gasto.setNumeroFactura(gastoUpdateDTO.getNumeroFactura());
+
+        return gasto;
 
     }
 
