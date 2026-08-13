@@ -1,25 +1,12 @@
 # App Gestión Empresarial - Autónomo o Pyme
 
-Aplicación web desarrollada con Java 21 y Angular 21 con el objetivo de facilitar el control y gestión de la facturación de la empresa. 
+Aplicación web desarrollada con Java 21 y Angular 21.
 
----
+Te permite tener gestionsda y centralizada toda la facturación de tu empresa.
 
-## 🚀 Tecnologías y dependencias utilizadas
+---
 
-### Backend
-
-* ☕ **Java 21**
-* 🌱 **Spring Boot 4.1.0**
-* 🌐 **Spring MVC**
-* 🗄️ **Spring Data JPA**
-* 🔐 **Spring Security**
-* 🎫 **JSON Web Token (JWT)**
-* ✅ **Bean Validation**
-* 🐬 **MySQL**
-* 🛠️ **Maven**
-* 🔧 **Lombok**
-
-### Librerías principales
+### Dependencias 
 
 * `jjwt-api`
 * `jjwt-impl`
@@ -35,21 +22,7 @@ Aplicación web desarrollada con Java 21 y Angular 21 con el objetivo de facilit
 
 ### 🔐 Autenticación
 
-El sistema dispone de un módulo de autenticación basado en JWT que permite:
-
-* Registro de nuevos usuarios.
-* Inicio de sesión.
-* Generación de tokens JWT.
-* Renovación de tokens mediante Refresh Token.
-* Protección de endpoints mediante Spring Security.
-
-Endpoints principales:
-
-```http
-POST /auth/login
-POST /auth/register
-POST /auth/refresh
-```
+El sistema dispone de un módulo de autenticación basado en JWT que permite el uso de tokens para iniciar sesión además de tener endpoints protegidos.
 
 ---
 
