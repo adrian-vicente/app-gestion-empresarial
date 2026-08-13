@@ -6,20 +6,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import app.gestion.empresarial.backend.dto.Usuario.UsuarioDTO;
 import app.gestion.empresarial.backend.dto.Usuario.UsuarioUpdateDTO;
 import app.gestion.empresarial.backend.exception.UsuarioNotFoundException;
-import app.gestion.empresarial.backend.repository.UsuarioRepository;
 import app.gestion.empresarial.backend.service.UsuarioService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/api/usuarios")
 public class UsuarioRestController {
 
     // Inyección de dependencias 

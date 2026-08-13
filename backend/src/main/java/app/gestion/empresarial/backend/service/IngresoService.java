@@ -1,7 +1,9 @@
 package app.gestion.empresarial.backend.service;
 
 import org.springframework.stereotype.Service;
+import java.util.List;
 
+import app.gestion.empresarial.backend.dto.Ingreso.IngresoDTO;
 import app.gestion.empresarial.backend.mapper.IngresoMapper;
 import app.gestion.empresarial.backend.repository.IngresoRepository;
 

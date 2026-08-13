@@ -7,12 +7,14 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.gestion.empresarial.backend.dto.Gasto.GastoCreateDTO;
 import app.gestion.empresarial.backend.dto.Gasto.GastoDTO;
+import app.gestion.empresarial.backend.dto.Gasto.GastoUpdateDTO;
 import app.gestion.empresarial.backend.exception.GastoAlreadyExistsException;
 import app.gestion.empresarial.backend.exception.GastoNotFoundException;
 import app.gestion.empresarial.backend.service.GastoService;
@@ -55,6 +57,13 @@ public class GastoRestController {
         
     }
 
-    // Método para crear un nuevco gasto
+    // Método para modificar un gasto existente 
+
+    @PutMapping("/modificar/{id}")
+    @PreAuthorize("isAuthenticated()")
+    public ResponseEntity<GastoDTO> modificarNuevoGasto(@RequestBody @Valid GastoUpdateDTO gastoUpdateDTO, @PathVariable Long gasto_id) throws GastoAlreadyExistsException {
+        return ResponseEntity.ok(gastoService.modificarGastoExistente(gastoUpdateDTO, gasto_id));
+        
+    }
 
 } // class
