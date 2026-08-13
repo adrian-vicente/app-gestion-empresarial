@@ -14,6 +14,8 @@ public class ProveedorUpdateDTO {
 
     // Declaración de atributos 
 
+    private Long id;
+
     @NotBlank(message = "El nombre del proveedor es obligatori")
     private String nombre;
     
