@@ -44,7 +44,7 @@ public class UsuarioMapper {
         usuarioDTO.setNombre( usuario.getNombre() );
         usuarioDTO.setEdad( usuario.getEdad() );
         usuarioDTO.setEmail( usuario.getEmail() );
-        usuarioDTO.setRol(usuario.getRol().toString());
+        usuarioDTO.setRol(usuario.getRol());
         usuarioDTO.setActivo(usuario.getActivo());
         usuarioDTO.setFechaCreacionUsuario(usuario.getFechaCreacionUsuario());
         usuarioDTO.setTelefono(usuario.getTelefono());

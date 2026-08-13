@@ -1,0 +1,3 @@
+export enum MetodoPago {
+  EFECTIVO, TARJETA, TRANSFERENCIA, OTROS
+}

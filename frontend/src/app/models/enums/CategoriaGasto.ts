@@ -1,0 +1,3 @@
+export enum CategoriaGasto {
+  FACTURAS, IMPUESTOS, MANTENIMIENTO, MATERIAL, OTROS
+}
