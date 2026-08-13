@@ -4,7 +4,8 @@ Aplicación web desarrollada con Java 21 y Angular 21.
 
 Te permite tener gestionada y centralizada toda la facturación de tu empresa.
 
----
+---
+
 
 ### Dependencias 
 
@@ -22,34 +23,25 @@ Te permite tener gestionada y centralizada toda la facturación de tu empresa.
 
 ### 🔐 Autenticación
 
-El sistema dispone de un módulo de autenticación basado en JWT que permite el uso de tokens para iniciar sesión además de tener endpoints protegidos.
+El sistema dispone de un módulo de autenticación basado en JWT que permite el uso de tokens para iniciar sesión además de tener endpoints protegidos.
+
 
 ---
 
 ### 👥 Gestión de usuarios
 
-La aplicación permite consultar información de usuarios y aplicar diferentes niveles de acceso según el rol.
+La aplicación permite consultar información de usuarios y aplicar diferentes niveles de acceso según el rol. Por el momento es una aplicación a medida, posteriormente se implementará sistema basado en roles ya existentes, con distintas funciones según el rol que acceda. 
 
-Funciones disponibles:
-
-* Obtener todos los usuarios.
-* Obtener un usuario por ID.
-* Obtener un usuario por nombre.
-* Obtener usuarios activos.
-* Obtener usuarios filtrados por rol.
-* Obtener información del usuario autenticado.
-
-Los endpoints de administración están protegidos mediante autorización basada en roles, incluyendo operaciones exclusivas para usuarios con el rol `ADMIN`.
-
-Ejemplos:
+Endpoints para la gestión de usuarios:
 
 ```http
-GET /api/usuario/obtener
-GET /api/usuario/obtener/{id}
-GET /api/usuario/me
-GET /api/usuario/{nombre}
-GET /api/usuario/obtener/activos
-GET /api/usuario/obtener/rol
+GET /api/usuarios/obtener
+GET /api/usuarios/obtener/{id}
+GET /api/usuarios/me
+GET /api/usuarios/{nombre}
+GET /api/usuarios/obtener/activos
+GET /api/usuarios/obtener/rol
+GET /api/usuarios/me
 ```
 
 ---
