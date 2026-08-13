@@ -9,17 +9,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class IngresoDTO {
+public class IngresoCreateDTO {
 
     // Declaración de atributos 
 
-    private Long id;
     private MetodoPago metodoPago;
     private CategoriaIngreso categoriaIngreso;
 
@@ -28,9 +26,5 @@ public class IngresoDTO {
     private String descripcion;
     private BigDecimal iva;
     private BigDecimal total;
-
-    // Declaración de atributos para las relaciones 
-
-    private Long usuarioId;
 
 } // class

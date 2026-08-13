@@ -61,4 +61,20 @@ public class GlobalExceptionHandler {
             .body(ex.getMessage());
     }
 
+    @ExceptionHandler(IngresoNotFoundException.class)
+    public ResponseEntity<String> ingresoNotFound(IngresoNotFoundException ex) {
+        return ResponseEntity
+            .status(HttpStatus.NOT_FOUND)
+            .body(ex.getMessage());
+            
+    }
+
+    @ExceptionHandler(IngresoAlreadyExistsException.class)
+    public ResponseEntity<String> ingresoAlreadyExists(IngresoAlreadyExistsException ex) {
+        return ResponseEntity
+            .status(HttpStatus.CONFLICT)
+            .body(ex.getMessage());
+            
+    }
+
 } // class

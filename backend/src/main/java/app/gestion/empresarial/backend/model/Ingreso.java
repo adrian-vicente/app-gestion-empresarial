@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import app.gestion.empresarial.backend.model.enums.CategoriaIngreso;
 import app.gestion.empresarial.backend.model.enums.MetodoPago;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -38,6 +39,7 @@ public class Ingreso {
     @Enumerated(EnumType.STRING)
     private CategoriaIngreso categoriaIngreso;
 
+    @Column(unique = true, nullable = false)
     private String nombre;
     private String descripcion;
 

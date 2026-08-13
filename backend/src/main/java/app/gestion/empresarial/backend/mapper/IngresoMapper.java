@@ -3,6 +3,7 @@ package app.gestion.empresarial.backend.mapper;
 import org.springframework.stereotype.Component;
 import app.gestion.empresarial.backend.model.Usuario;
 import app.gestion.empresarial.backend.config.ValidatorConfig;
+import app.gestion.empresarial.backend.dto.Ingreso.IngresoCreateDTO;
 import app.gestion.empresarial.backend.dto.Ingreso.IngresoDTO;
 import app.gestion.empresarial.backend.exception.UsuarioNotFoundException;
 import app.gestion.empresarial.backend.model.Ingreso;
@@ -62,6 +63,21 @@ public class IngresoMapper {
         // Devolver el objeto con los datos transpilados 
 
         return ingresoDTO;
+
+    }
+
+    // Método de conversión a entidad desde DTO de creación 
+
+    public Ingreso toEntityFromCreateDTO(IngresoCreateDTO ingresoCreateDTO) {
+        Ingreso ingreso = new Ingreso();
+            ingreso.setMetodoPago(ingresoCreateDTO.getMetodoPago());
+            ingreso.setCategoriaIngreso(ingresoCreateDTO.getCategoriaIngreso());
+            ingreso.setNombre(ingresoCreateDTO.getNombre());
+            ingreso.setDescripcion(ingresoCreateDTO.getDescripcion());
+            ingreso.setIva(ingresoCreateDTO.getIva());
+            ingreso.setTotal(ingresoCreateDTO.getTotal());
+            
+        return ingreso;
 
     }
 
