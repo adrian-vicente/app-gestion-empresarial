@@ -98,6 +98,9 @@ public class Usuario implements UserDetails {
     @OneToMany(mappedBy = "usuario")
     private List<Ingreso> ingresos;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Proveedor> proveedores;
+
     // Método para obtener los roles del usuario 
 
     @Override

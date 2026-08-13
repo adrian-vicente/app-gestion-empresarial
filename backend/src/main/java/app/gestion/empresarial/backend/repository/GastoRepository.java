@@ -22,4 +22,8 @@ public interface GastoRepository extends JpaRepository<Gasto, Long> {
 
     public boolean existsById(Long id);
 
+    // Obtener todos los gastos a partir del id de un usuario 
+
+    public List<Gasto> findByUsuarioId(Long id);
+
 }

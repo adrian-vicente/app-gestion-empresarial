@@ -19,19 +19,24 @@ public class IngresoService {
 
     private final IngresoRepository ingresoRepository;
     private final IngresoMapper ingresoMapper;
+    private final UsuarioService usuarioService;
 
-    public IngresoService(IngresoRepository ingresoRepository, IngresoMapper ingresoMapper) {
+    public IngresoService(IngresoRepository ingresoRepository, IngresoMapper ingresoMapper, UsuarioService usuarioService) {
         this.ingresoRepository = ingresoRepository;
         this.ingresoMapper = ingresoMapper;
+        this.usuarioService = usuarioService;
+
     }
 
     // Método para obtener todos los ingresos
 
     public List<IngresoDTO> obtenerTodosLosIngresos() {
-        return ingresoRepository.findAll()
-            .stream()
-            .map(ingreso -> ingresoMapper.toDTO(ingreso))
-            .collect(Collectors.toList());
+        return ingresoRepository.findByUsuarioId(
+            usuarioService.getAuthenticatedUser().getId()
+        )
+        .stream()
+        .map(ingreso -> ingresoMapper.toDTO(ingreso))
+        .collect(Collectors.toList());
 
     }
 

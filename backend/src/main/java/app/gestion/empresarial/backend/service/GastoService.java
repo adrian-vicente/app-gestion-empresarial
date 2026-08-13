@@ -21,19 +21,24 @@ public class GastoService {
 
     private final GastoMapper gastoMapper;
     private final GastoRepository gastoRepository;
+    private final UsuarioService usuarioService;
     
-    public GastoService(GastoRepository gastoRepository, GastoMapper gastoMapper) {
+    public GastoService(GastoRepository gastoRepository, GastoMapper gastoMapper, UsuarioService usuarioService) {
         this.gastoRepository = gastoRepository;
         this.gastoMapper = gastoMapper;
+        this.usuarioService = usuarioService;
 
     }
 
     // Método para obtener todos los gastos 
 
     public List<GastoDTO> obtenerTodosLosGastos() {
-        return gastoRepository.findAll().stream()
-            .map(gasto -> gastoMapper.toDTO(gasto))
-            .collect(Collectors.toList());
+        return gastoRepository.findByUsuarioId(
+            usuarioService.getAuthenticatedUser().getId()
+        )
+        .stream()
+        .map(gasto -> gastoMapper.toDTO(gasto))
+        .collect(Collectors.toList());
 
     }
 

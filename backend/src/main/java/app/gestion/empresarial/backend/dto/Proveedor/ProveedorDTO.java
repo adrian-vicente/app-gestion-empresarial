@@ -21,6 +21,6 @@ public class ProveedorDTO {
 
     // Declaración de atributos para las relaciones
 
-    List<Long> gastosIds;
+    private List<Long> gastosIds;
 
 } // class
