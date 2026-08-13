@@ -2,7 +2,7 @@
 
 Aplicación web desarrollada con Java 21 y Angular 21.
 
-Te permite tener gestionsda y centralizada toda la facturación de tu empresa.
+Te permite tener gestionada y centralizada toda la facturación de tu empresa.
 
 ---
 
