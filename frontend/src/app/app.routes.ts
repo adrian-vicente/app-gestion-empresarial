@@ -1,23 +1,26 @@
 import { Routes } from '@angular/router';
+import { DashboardComponent } from './components/base/dashboard/dashboard.component';
+import { authGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/auth/login/login.component';
 
 export const routes: Routes = [
-
   // Ruta que redirigirá al componente para iniciar sesión
 
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: '*', redirectTo: 'login'},
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
   {
     path: 'login',
-    loadComponent: () => import('./components/auth/login/login.component')
-      .then(m => m.LoginComponent) },
+    component: LoginComponent
 
-  // Ruta que redigirá al dashboard de la aplicación
-
-  {
-    path: 'login',
-    loadComponent: () => import('./components/base/dashboard/dashboard.component')
-      .then(m => m.DashboardComponent)
   },
 
+  // Ruta que redigirá al dashboard. Ruta protegida. Es necesario estar autenticado para acceder.
+
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [authGuard],
+  },
+
+  { path: '*', redirectTo: 'dashboards' },
 ];

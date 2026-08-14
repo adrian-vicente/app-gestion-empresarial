@@ -9,10 +9,9 @@ import { Login } from '../../../models/Login/Login';
   selector: 'app-login',
   imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
-
   // Inyección de dependencias
 
   private readonly authService = inject(AuthService);
@@ -20,9 +19,9 @@ export class LoginComponent {
 
   // Declaración de atributos
 
-  private email: string = "";
-  private password: string = "";
-  private error: string = "";
+  public email: string = '';
+  public password: string = '';
+  public error: string = '';
 
   // Método para iniciar sesión en la aplicación
 
@@ -36,9 +35,8 @@ export class LoginComponent {
       next: () => { this.router.navigate(['/dashboard']) },
       error: (error) => {
         console.error(error);
-        this.error = "El email o la password introducida no son correctas." }
+        this.error = 'El email o la password introducida no son correctas.';
+      },
     });
-
   } // iniciarSesion()
-
 } // class
