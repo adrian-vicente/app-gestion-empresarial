@@ -23,7 +23,7 @@ export class AuthService {
 
   // Método para iniciar sesión
 
-  protected login(loginDTO: Login): Observable<TokenResponse> {
+  public login(loginDTO: Login): Observable<TokenResponse> {
     return this.http.post<TokenResponse>(
       `${this.apiUrl}/login`, loginDTO)
       .pipe(
