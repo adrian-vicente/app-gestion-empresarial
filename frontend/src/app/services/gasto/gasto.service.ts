@@ -23,4 +23,12 @@ export class GastoService {
 
   }
 
+  // Método para crear un nuevo gasto
+
+  // Método para obtener un gasto por id
+
+  // Método para modificar un gasto existente
+
+  // Método para eliminar un gasto
+
 } // class

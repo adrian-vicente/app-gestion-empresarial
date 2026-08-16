@@ -6,4 +6,6 @@ import { Injectable } from '@angular/core';
 export class UsuarioService {
 
   constructor() { }
+
+  // Método para modificar los datos del usuario
 }

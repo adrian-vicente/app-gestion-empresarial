@@ -28,26 +28,26 @@ export class AuthService {
         this.guardarTokens(response);
       }),
     );
-  } // login()
+  }
 
   // Método para almacenar los tokens
 
   protected guardarTokens(response: TokenResponse): void {
     localStorage.setItem(this.ACCESS_TOKEN_KEY, response.accessToken);
     localStorage.setItem(this.REFRESH_TOKEN_KEY, response.refreshToken);
-  } // guardarTokens
+  }
 
   // Método para obtener el token de acceso
 
   protected obtenerAccessToken(): string | null {
     return localStorage.getItem(this.ACCESS_TOKEN_KEY);
-  } // obtenerAccessToken
+  }
 
   // Método para refrescar el token actual
 
   protected obtenerRefreshToken(): string | null {
     return localStorage.getItem(this.REFRESH_TOKEN_KEY);
-  } // obtenerRefreshToken
+  }
 
   // Método para cerrar sesión en la aplicación
 
@@ -61,4 +61,7 @@ export class AuthService {
   public estaAutenticado(): boolean {
     return this.obtenerAccessToken() != null;
   }
+
+  // Método para cambiar la password del usuario
+
 } // class
