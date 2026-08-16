@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* Importación de fuentes */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Definición de variables */
+
+:root {
+  --fuente-principal: 'Poppins';
+  --color-negro: #171517;
+  --color-blanco: #FFFFFF;
+  --color-rosa: #E8C7D1;
+  --color-rosa-claro: #F5E7EB;
+}
+
+/* Estilo general para el color de fondo en la aplicación */
+
+body {
+  background-color: var(--color-negro);
+}

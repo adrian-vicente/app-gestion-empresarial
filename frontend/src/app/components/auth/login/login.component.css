@@ -1,0 +1,107 @@
+
+/* Estilos globales*/
+
+* {
+  font-family: var(--fuente-principal);
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+/* Estilos para centrar contenido en el centro de la página */
+
+div.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 98vh;
+}
+
+/* Estilos para el contenedor que contiene el texto y formulario */
+
+div.login-card {
+  width: 500px;
+  height: auto;
+}
+
+/* Estilo para los títulos antes del formulario */
+
+.login-card h1, p {
+  text-align: center;
+  color: var(--color-blanco);
+}
+
+/* Estilos para el título de la aplicación */
+
+.login-card h1 {
+  font-size: 3rem;
+}
+
+/* Estilos para el subtítulo del párrafo */
+
+.login-card p {
+  font-size: 1.3rem;
+  margin-top: -25px;
+}
+
+.login-card p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Estilos del formulario para iniciar sesión */
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para el contenedor que engloba inputs y labels */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding-top: 1.5rem;
+  color: var(--color-blanco);
+}
+
+.form-group label::after {
+  content: ':';
+}
+
+/* Estilo para el input del formulario */
+
+.form-group input {
+  padding: 1rem;
+  border: .5px solid black;
+  border-radius: 5px;
+}
+
+/* Estilo para el botón antes de iniciar sesión */
+
+form button {
+  padding: 1rem;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  border: .5px solid black;
+  border-radius: 5px;
+
+  /* Estilos estéticos sobre el botón */
+
+  background-color: var(--color-rosa);
+  color: var(--color-negro);
+  font-weight: bolder;
+
+}
+
+form button:hover {
+  cursor: pointer;
+}

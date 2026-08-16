@@ -6,12 +6,9 @@ import { LoginComponent } from './components/auth/login/login.component';
 export const routes: Routes = [
   // Ruta que redirigirá al componente para iniciar sesión
 
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-
   {
     path: 'login',
-    component: LoginComponent
-
+    component: LoginComponent,
   },
 
   // Ruta que redigirá al dashboard. Ruta protegida. Es necesario estar autenticado para acceder.
@@ -22,5 +19,7 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
 
-  { path: '*', redirectTo: 'dashboards' },
+  { path: '*', redirectTo: 'dashboard' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+
 ];
