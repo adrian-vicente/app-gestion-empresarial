@@ -2,11 +2,14 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Gasto } from '../../models/Gasto/Gasto';
+import { GastoCreate } from '../../models/Gasto/GastoCreate';
+import { GastoUpdate } from '../../models/Gasto/GastoUpdate';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GastoService {
+
   // Inyección de dependencias
 
   private readonly http = inject(HttpClient);
@@ -25,10 +28,16 @@ export class GastoService {
 
   // Método para crear un nuevo gasto
 
-  // Método para obtener un gasto por id
+  public crearGasto(gastoNuevo: GastoCreate): Observable<Gasto> {
+    return this.http.post<Gasto>(`${this.apiUrl}/crear`, gastoNuevo);
+
+  }
 
   // Método para modificar un gasto existente
 
-  // Método para eliminar un gasto
+  public modificarGasto(gastoModificado: GastoUpdate, gasto_id: number): Observable<Gasto> {
+    return this.http.put<Gasto>(`${this.apiUrl}/${gasto_id}`, gastoModificado);
+
+  }
 
 } // class
