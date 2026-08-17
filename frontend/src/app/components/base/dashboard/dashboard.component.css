@@ -1,0 +1,61 @@
+
+/* Estilos generales */
+
+* {
+  font-family: var(--fuente-principal);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para la barra de navegación */
+
+.navbar {
+  border: 1px solid white;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+
+  /* Estilos para organizar el contenido de la barra de navegación */
+
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 2rem;
+  justify-content: space-between;
+
+}
+
+.navbar .miLogo {
+  color: var(--color-blanco);
+}
+
+.navbar .menu {
+  list-style: none;
+  border: 1px solid blue;
+  display: flex;
+  gap: 2.5rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+/* Estilos para los enlaces del menú */
+
+.navbar .menu li a {
+  text-decoration: none;
+  color: var(--color-blanco);
+  cursor: pointer;
+}
+
+.navbar .menu li {
+  color: var(--color-blanco);
+}
+
+.dashboard {
+  border: 1px solid red;
+  margin-top: 10rem;
+}

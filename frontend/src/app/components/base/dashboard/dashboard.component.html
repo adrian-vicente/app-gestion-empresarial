@@ -1,21 +1,47 @@
-<div class="dashboard">
 
-  <!-- Header con enlaces accesibles -->
+<!-- Barra de navegación -->
 
-  <div class="dashboard--header">
-    <ul>
-      <li>Dashboard</li>
-      <li>Ingresos</li>
-      <li>Gastos</li>
-      <li>Proveedores</li>
-    </ul>
+<nav class="navbar">
+  <div class="miLogo">
+    <p>logo</p>
   </div>
+  <ul class="menu">
+    <li> <a href="#">Dashboard</a> </li>
+    <li> <a href="#">Ingresos</a></li>
+    <li> <a href="#">Gastos</a></li>
+    <li> <a href="#">Proveedores</a></li>
+  </ul>
+</nav>
+
+<!-- Panel de administrador -->
+
+<div class="dashboard">
 
   <!-- Bloque principal con información accesible !-->
 
   <div class="dashboard--main">
 
     <!-- Párrafo con texto introductorio -->
+
+    <div class="dashboard--main__texto">
+
+      <!-- Mensaje en caso de cargar el usuario correctamente -->
+
+      @if (usuario) {
+        <p>Buenas, {{ usuario.nombre }} </p>
+        <p>Aquí tienes un resúmen de tu actividad.</p>
+      }
+
+      <!-- Mensaje en caso de error -->
+
+      @if (!usuario) {
+        <p> {{ errorUsuarioAutenticado }} </p>
+        <p> Porfavor, contacta con el administrador del sistema</p>
+      }
+
+    </div>
+
+    <!-- Bloque con estadísticas sobre la empresa -->
 
   </div>
 

@@ -39,7 +39,7 @@ export class AuthService {
 
   // Método para obtener el token de acceso
 
-  protected obtenerAccessToken(): string | null {
+  public obtenerAccessToken(): string | null {
     return localStorage.getItem(this.ACCESS_TOKEN_KEY);
   }
 
